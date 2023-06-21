@@ -717,6 +717,83 @@ height: 400px;
 .numberbar{
     text-align: center;
 }
+/* <===page detail===> */
+
+.container-detail{
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+}
+.addcard{
+    background-color: #B43F11;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+    padding: 0 8px;
+}
+.container-detail__img{
+    width: 100%;
+    height: 100%;
+}
+.detail-img{
+    width: 100%;
+    height: 100%;
+
+    
+}
+
+.content-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+.content-product__head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+  
+}
+.content-date__input{
+    width: 100%;
+}
+.content-param{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.content-head__price{
+    font-size: 2rem;
+}
+.span-detail{
+    font-size: 1.4rem;
+    width: 100%;
+
+}
+.footer-driver{
+    background-color: #B43F11;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7); 
+}
+.driver{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.driver-card{
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 16px 0;
+}
+.driver-card i{
+font-size: 3rem;
+padding: 0 8px;
+
+}
+
 /* footer */
 
 .footer{

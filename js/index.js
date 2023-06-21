@@ -29,6 +29,9 @@ myApp.config(function($routeProvider) {
     })
     .when("/about", {
       templateUrl : "./views/about.html"
+    })
+    .when("/detail", {
+      templateUrl : "./views/detail.html"
     });
   });
  myApp.run(function ($rootScope, $http) {
