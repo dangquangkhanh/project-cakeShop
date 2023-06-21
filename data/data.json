@@ -1,0 +1,47 @@
+{ "details":[
+   
+        { "id": "1", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-1.jpg" },
+        { "id": "2", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-2.jpg" },
+        { "id": "3", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-3.jpg" },
+        { "id": "4", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-4.jpg" },
+        { "id": "5", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-5.jpg" },
+          { "id": "6", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-6.jpg" },
+          { "id": "7", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-7.jpg" },
+          { "id": "8", "name": "Ormari sed consequat","title":"birthday", "type":"with Egg","price":"19","quantily":"8","image":"./images/img-birthday/birthday-8.jpg" },
+        
+          { "id": "9", "name": "Ormari sed consequat","title":"Marriagey", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-1.jpg" },
+          { "id": "10", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-2.webp" },
+          { "id": "11", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"12","image":"./images/wedding-img/wedding-cake-3.jpg" },
+          { "id": "12", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-4.webp" },
+          { "id": "13", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-5.jpg" },
+            { "id": "14", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-6.jpg" },
+            { "id": "15", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-7.jpg" },
+            { "id": "16", "name": "Ormari sed consequat","title":"Marriage", "type":"with Egg","price":"19","quantily":"8","image":"./images/wedding-img/wedding-cake-8.jpg" },
+
+            { "id": "17", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"8","image":"./images/Anniversary-img/product-1.jpg" },
+            { "id": "18", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"8","image":"./images/Anniversary-img/product-2.jpg" },
+            { "id": "19", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"12","image":"./images/Anniversary-img/product-3.jpg" },
+            { "id": "20", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"8","image":"./images/Anniversary-img/product-4.jpg" },
+            { "id": "21", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"8","image":"./images/Anniversary-img/product-5.jpg" },
+              { "id": "22", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"8","image":"./images/Anniversary-img/product-6.jpg" },
+              { "id": "23", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"19","quantily":"8","image":"./images/Anniversary-img/product-7.jpg" },
+              { "id": "24", "name": "Anniversary-cake","title":"Anniversary", "type":"with Egg","price":"25","quantily":"8","image":"./images/Anniversary-img/product-8.jpg" },
+        
+              
+        { "id": "25", "name": "Ormari sed consequat","title":"gallsery", "type":"with Egg","price":"19","quantily":"8","image":"./images/gallery/gallery-img-1.jpg" },
+        { "id": "26", "name": "Ormari sed consequat","title":"gallsery", "type":"with Egg","price":"19","quantily":"8","image":"./images/gallery/gallery-img-2.jpg" },
+        { "id": "27", "name": "Ormari sed consequat","title":"gallsery", "type":"with Egg","price":"19","quantily":"8","image":"./images/gallery/gallery-img-3.jpg" },
+        { "id": "28", "name": "Ormari sed consequat","title":"gallsery", "type":"with Egg","price":"19","quantily":"8","image":"./images/gallery/gallery-img-4.jpg" },
+          { "id": "29", "name": "Ormari sed consequat","title":"gallsery", "type":"with Egg","price":"19","quantily":"8","image":"./images/gallery/gallery-img-5.jpg" },
+          { "id": "30", "name": "Ormari sed consequat","title":"gallsery", "type":"with Egg","price":"19","quantily":"8","image":"./images/gallery/gallery-img-6.jpg" },
+
+          { "id": "31", "name": "cake-sale","title":"sale", "type":"with Egg","price":"19","quantily":"8","image":"./images/home-img-1.png" },
+        { "id": "32", "name": "Ormari sed consequat","title":"sale", "type":"with Egg","price":"19","quantily":"8","image":"./images/home-img-2.png" },
+        { "id": "33", "name": "Ormari sed consequat","title":"sale", "type":"with Egg","price":"19","quantily":"8","image":"./images/home-img-3.png" },
+          { "id": "34", "name": "Ormari sed consequat","title":"sale", "type":"with Egg","price":"19","quantily":"8","image":"./images/home12.png" },
+          { "id": "35", "name": "Ormari sed consequat","title":"sale", "type":"with Egg","price":"19","quantily":"8","image":"./images/home22.png" },
+          { "id": "36", "name": "Ormari sed consequat","title":"sale", "type":"with Egg","price":"19","quantily":"8","image":"./images/cat-1.jpg" }
+          
+ 
+   ]
+   }

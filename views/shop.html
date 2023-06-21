@@ -1,0 +1,124 @@
+<div class="container-shop" ng-controller="shopCtrl">
+    <div class="bg-shop"></div>
+    <div class="container">
+        <div class="container-shop__conten">
+
+            <div class="wd-for">
+                <div class="container-sidebar">
+
+                    <div class="search">
+                        <div class="box-map">
+                            <iframe class="map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.3011806427!2d54.947543798608436!3d25.076381472700536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1642496355732!5m2!1sen!2sin"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <ul class="list-search">
+                            <li class="item-search"><span class="span-title"> Price product</span>
+                                <input type="range" min="0" max="100" oninput="rangevalue.value=value +'$'" />
+                                <output id="rangevalue">50$</output>
+                            </li>
+                            <li class="item-search"><span class="span-title">Type product</span>
+                                <div class="input-check">
+                                    <input type="radio" class="form-check-input" name="type"
+                                        class="form-check-input"><span>Birthday</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="radio" class="form-check-input" name="type"><span>Marriage</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="radio" class="form-check-input" name="type"><span>Anniversary</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="radio" class="form-check-input" name="type"><span>Gallsery</span>
+                                </div>
+                            </li>
+                            <li class="item-search">
+                                <spa class="span-title" n>Name product</spa>
+                                <input type="text" placeholder="search name product" class="search-name">
+                            </li>
+                            <li class="item-search">
+                                <spa class="span-title" n>Egg</spa>
+                                <div class="input-check">
+                                    <input type="radio" class="form-check-input" name="egg"><span>Egg less</span>
+                                </div>
+                                <div class="input-check">
+                                    <input type="radio" class="form-check-input" name="egg"><span>With Egg</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="box-touch">
+                            <form name="touch">
+                                <h3>Get in Touch</h3>
+                                <div class="info">
+                                    <input type="text" class="info-name wd-full" placeholder="Enter your name" />
+                                    <input type="email" class="info-email wd-full" placeholder="Enter your email" />
+                                </div>
+                                <div class="info">
+
+                                    <input type="text" class="info-number wd-full " placeholder="Enter your number" />
+
+
+                                    <input type="text" class="info-subject  wd-full"
+                                        placeholder="Enter your  subject" />
+
+                                </div>
+                                <div class="info">
+                                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                                </div>
+                                <a type="submit" class="btn">Send message</a>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="shop-card wd-76">
+                <div class="product-content">
+                    <div class=" box-product wd-thir" ng-repeat=" item in data">
+                        <div class=" product-icon">
+                            <div class="box-icon">
+                                <a href="" class="icon-link"> <i class="fa-solid fa-heart "></i></a>
+                                <a href="" class="icon-link"> <i class="fa-solid fa-cart-shopping "></i></a>
+                                <a href="" class="icon-link"> <i class="fa-solid fa-eye "></i></a>
+                            </div>
+                        </div>
+                        <ol class="box-list">
+                            <li class="box-item"> <img src={{item.image}} alt="">
+                            </li>
+                            <li class="box-item">
+                                <h3>{{item.name}}</h3>
+                            </li>
+                            <li class="box-item">
+                                <span>{{item.type}}</span>
+                            </li>
+
+                            <li class="box-item"><span>$ {{item.price}}</span></li>
+                            <li class="box-item">
+                                <ul class="list-icon">
+                                    <li class="item-icon"><i class="fa-solid fa-star"></i></li>
+                                    <li class="item-icon"><i class="fa-solid fa-star"></i></li>
+                                    <li class="item-icon"><i class="fa-solid fa-star"></i></li>
+                                    <li class="item-icon"><i class="fa-solid fa-star"></i></li>
+                                    <li class="item-icon"><i class="fa-solid fa-star"></i></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="numberbar">
+            <img src="" alt="">
+            <button class="btn" ng-click="prewPage()" id="prew-page"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="btn" ng-click="changePage(1)">1</button>
+            <button class="btn" ng-click="changePage(2)">2</button>
+            <button class="btn" ng-click="changePage(3)">3</button>
+
+            <button class="btn" id="next-page" ng-click="nextPage()"><i class="fa-solid fa-chevron-right"></i> </button>
+        </div>
+    </div>
+
+</div>
