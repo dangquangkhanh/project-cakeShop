@@ -3,16 +3,18 @@
     <div class="bg-shop"></div>
     <div class=" container">
         <div class="container-detail">
+            <div class=" wd-haft">
 
-
-            <div class="container-detail__img wd-haft">
-                <img src="../images/cat-1.jpg" alt="" class="detail-img">
+                <div class="container-detail__img">
+                    <img class="zoom-img" src="../images/wedding-img/wedding-cake-1.jpg" ng-mouseenter="zoomIn()"
+                        ng-mouseleave="zoomOut()">
+                </div>
             </div>
-
 
             <form action="" class="addcard wd-haft">
                 <div class="container-detail-content ">
-                    <div class="content-head ">
+                    <span class="span-detail">Usec Sans</span>
+                    <div class="content-head  bd-bottom">
                         <h2 class="content-name">Use Sans Rival caake</h2>
                         <span class="content-head__price"> $19</span>
                     </div>
@@ -23,14 +25,47 @@
                                 Product Description
                             </h2>
                             <div class="button">
-
-                                <button class="content-product__down">
+                                <button class="content-product__down" ng-click="showContent()">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </button>
-                                <button class="content-product__up">
+                                <button class="content-product__up hiden-btn" ng-click="hidenContent()">
                                     <i class="fa-solid fa-chevron-up"></i>
                                 </button>
                             </div>
+                        </div>
+                        <div class="content-product-body">
+                            <ol class="product-body__list ">
+                                <li class="product-body__item">
+                                    <p class="p-product">A family recipe that has been improved and perfected over
+                                        many years, every chocolate cake is lovingly handcrafted by Mommy Lucy.
+                                        Homemade since 1975. The best-selling chocolate cake in a can!</p>
+                                </li>
+                                <li class="product-body__item">
+                                    <span class="span-product">
+                                        Ingredients
+                                    </span>
+
+                                    <p class="p-product">
+                                        Butter, sugar, flour, eggs, chocolate
+                                    </p>
+                                </li>
+                                <li class="product-body__item">
+                                    <span class="span-product">
+                                        Allergens
+                                    </span>
+                                    <p class="p-product">
+                                        Dairy, Eggs, Wheat
+                                    </p>
+                                </li>
+                                <li class="product-body__item">
+                                    <span class="span-product">
+                                        Weight & Dimensions
+                                    </span>
+                                    <p class="p-product">
+                                        Medium - 0.6 - 6
+                                    </p>
+                                </li>
+                            </ol>
                         </div>
                     </div>
                     <div class="content-date bd-bottom pd-8">

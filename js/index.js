@@ -130,8 +130,45 @@ $scope.$watch('currentPage + numPerPage', function() {
   $scope.data = listItem.slice(begin, end);
 });
 });
-// contac controller
+// contact controller
 myApp.controller("contactCtrl",function($scope){
 
-})
+});
+// detail controller
+myApp.controller("detailCtrl",function($scope){
+  // get by class tag
+   let contentBody = document.querySelector(".content-product-body");
+   let btnDown = document.querySelector(".content-product__down");
+   let btnUp = document.querySelector(".content-product__up");
+// show hiden content  body Product
+$scope.showContent = function(){
+  contentBody.classList.remove('product-active');
+
+  contentBody.classList.add("product-active");
+
+  btnDown.classList.add("hiden-btn");
+
+  btnUp.classList.remove("hiden-btn");
+  btnUp.classList.add("show-btn");
+};
+$scope.hidenContent = function(){
+  contentBody.classList.remove('product-active');
+
+  btnDown.classList.add("show-btn");
+  btnDown.classList.remove("hiden-btn");
+
+
+  btnUp.classList.add("hiden-btn");
+  btnUp.classList.remove("show-btn");
+
+};
+// zoom img product
+$scope.zoomIn = function() {
+  document.querySelector('.zoom-img').style.transform = 'scale(1.5)';
+}
+
+$scope.zoomOut = function() {
+  document.querySelector('.zoom-img').style.transform = 'scale(1)';
+}
+});
 
