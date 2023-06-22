@@ -163,12 +163,34 @@ $scope.hidenContent = function(){
 
 };
 // zoom img product
-$scope.zoomIn = function() {
-  document.querySelector('.zoom-img').style.transform = 'scale(1.5)';
-}
+// $scope.zoomIn = function() {
+//   document.querySelector('.zoom-img').style.transform = 'scale(1.5)';
+// }
 
-$scope.zoomOut = function() {
-  document.querySelector('.zoom-img').style.transform = 'scale(1)';
-}
+// $scope.zoomOut = function() {
+//   document.querySelector('.zoom-img').style.transform = 'scale(1)';
+// }
+
+
+let magnifying_area = document.getElementById("magnifying_area");
+let magnifying_img = document.getElementById("magnifying_img");
+magnifying_area.addEventListener("mousemove",function(event){
+ let  clientX = event.clientX - magnifying_area.offsetLeft;
+  let clinetY = event.clientY - magnifying_area.offsetTop;
+
+   mWidth = magnifying_area.offsetWidth;
+   mHeight = magnifying_area.offsetHeight;
+
+   clientX = clientX/mWidth*100;
+   clinetY = clinetY/mWidth*100;
+
+magnifying_img.style.transform = 'translate(-'+  clientX+'%,-'+clinetY+'%) scale(2.5)';
+});
+magnifying_area.addEventListener("mouseleave",function(){
+  magnifying_img.style.transform = 'translate(-50%,-50%) scale(1)';
+
+})
+
+
 });
 
