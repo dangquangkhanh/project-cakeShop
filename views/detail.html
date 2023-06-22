@@ -4,10 +4,12 @@
     <div class=" container">
         <div class="container-detail">
             <div class=" wd-haft">
-
                 <div class="container-detail__img">
-                    <img class="zoom-img" src="../images/wedding-img/wedding-cake-1.jpg" ng-mouseenter="zoomIn()"
-                        ng-mouseleave="zoomOut()">
+
+                    <div id="magnifying_area">
+                        <img id="magnifying_img" src="../images/wedding-img/wedding-cake-2.webp"
+                            ng-mousemove="zoomIn($event)" ng-mouseleave="zoomOut()">
+                    </div>
                 </div>
             </div>
 
