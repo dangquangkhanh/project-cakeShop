@@ -38,9 +38,7 @@
                         <div class="content-product-body">
                             <ol class="product-body__list ">
                                 <li class="product-body__item">
-                                    <p class="p-product">A family recipe that has been improved and perfected over
-                                        many years, every chocolate cake is lovingly handcrafted by Mommy Lucy.
-                                        Homemade since 1975. The best-selling chocolate cake in a can!</p>
+                                    <p class="p-product">{{data.descript.describe}}</p>
                                 </li>
                                 <li class="product-body__item">
                                     <span class="span-product">
@@ -48,7 +46,7 @@
                                     </span>
 
                                     <p class="p-product">
-                                        Butter, sugar, flour, {{data.type}}, chocolate
+                                        {{data.descript.ingredientts}}
                                     </p>
                                 </li>
                                 <li class="product-body__item">
@@ -56,7 +54,7 @@
                                         Allergens
                                     </span>
                                     <p class="p-product">
-                                        Dairy, Eggs, Wheat
+                                        {{data.descript.allergens}}
                                     </p>
                                 </li>
                                 <li class="product-body__item">
@@ -64,7 +62,7 @@
                                         Weight & Dimensions
                                     </span>
                                     <p class="p-product">
-                                        Medium - 0.6 - 6
+                                        {{data.descript.weight}}-{{data.descript.dimensions}}
                                     </p>
                                 </li>
                             </ol>
