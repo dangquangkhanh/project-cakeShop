@@ -1,4 +1,4 @@
-<div class="detail" ng-controller="detailCtrl">
+<div class="detail" ng-controller="detailCtrl" ng-model="data">
 
     <div class="bg-shop"></div>
     <div class=" container">
@@ -7,8 +7,8 @@
                 <div class="container-detail__img">
 
                     <div id="magnifying_area">
-                        <img id="magnifying_img" src="../images/wedding-img/wedding-cake-2.webp"
-                            ng-mousemove="zoomIn($event)" ng-mouseleave="zoomOut()">
+                        <img id="magnifying_img" src='{{data.image}}' ng-mousemove="zoomIn($event)"
+                            ng-mouseleave="zoomOut()">
                     </div>
                 </div>
             </div>
@@ -17,8 +17,8 @@
                 <div class="container-detail-content ">
                     <span class="span-detail">Usec Sans</span>
                     <div class="content-head  bd-bottom">
-                        <h2 class="content-name">Use Sans Rival caake</h2>
-                        <span class="content-head__price"> $19</span>
+                        <h2 class="content-name">{{data.name}}</h2>
+                        <span class="content-head__price"> {{data.price}}$</span>
                     </div>
                     <div class="content-product bd-bottom pd-8">
                         <div class="content-product__head">
@@ -27,12 +27,12 @@
                                 Product Description
                             </h2>
                             <div class="button">
-                                <button class="content-product__down" ng-click="showContent()">
+                                <a class="content-product__down" ng-click="showContent()">
                                     <i class="fa-solid fa-chevron-down"></i>
-                                </button>
-                                <button class="content-product__up hiden-btn" ng-click="hidenContent()">
+                                </a>
+                                <a class="content-product__up hiden-btn" ng-click="hidenContent()">
                                     <i class="fa-solid fa-chevron-up"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="content-product-body">
@@ -48,7 +48,7 @@
                                     </span>
 
                                     <p class="p-product">
-                                        Butter, sugar, flour, eggs, chocolate
+                                        Butter, sugar, flour, {{data.type}}, chocolate
                                     </p>
                                 </li>
                                 <li class="product-body__item">

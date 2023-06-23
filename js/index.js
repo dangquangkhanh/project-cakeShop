@@ -41,8 +41,22 @@ myApp.config(function($routeProvider) {
         
     });
 });
+myApp.factory('myService', function() {
+  var savedData = {};
+  function set(data) {
+    savedData = data;
+  }
+  function get() {
+    return savedData;
+  }
+
+  return {
+    set: set,
+    get: get
+  };
+});
 // home controller
-myApp.controller("homeCtrl",function($scope){
+myApp.controller("homeCtrl",function($scope,myService){
     let fade = document.querySelectorAll('.fade');
   
     let index = 0;
@@ -59,10 +73,21 @@ myApp.controller("homeCtrl",function($scope){
         index = (index - 1 + fade.length) % fade.length;
         fade[index].classList.add('show');
     }
+    $scope.saveData = function(data) {
+      myService.set(data);
+     
+    };;
 })
 // shop controller
-myApp.controller("shopCtrl",function($scope,$http){
+myApp.controller("shopCtrl",function($scope,$http,myService){
 // logic input range
+// myService.set("test")
+$scope.saveData = function(data) {
+  myService.set(data);
+ 
+};;
+
+console.log($scope.saveData,"test")
 const rangeInputs = document.querySelectorAll('input[type="range"]')
 
 function handleInputChange(e) {
@@ -82,7 +107,7 @@ rangeInputs.forEach(input => {
 })
 
 
-console.log("test")
+
 let listItem = []
 
 $scope.currentPage = 1
@@ -101,7 +126,7 @@ $scope.changePage = function(page){
   
 }
 $scope.nextPage = function(){
-  let idNextBtn = document.getElementById("next-page");
+  
 
   if($scope.currentPage >=3){
   
@@ -113,7 +138,7 @@ console.log($scope.currentPage)
 
 };
 $scope.prewPage = function(){
-  let idprewtBtn = document.getElementById("prew-page");
+
 console.log($scope.currentPage);
   if($scope.currentPage <=1){
     $scope.currentPage = 3
@@ -135,14 +160,20 @@ myApp.controller("contactCtrl",function($scope){
 
 });
 // detail controller
-myApp.controller("detailCtrl",function($scope){
+myApp.controller("detailCtrl",function($scope,myService){
+
+// het data by cart product
+$scope.data = myService.get();
+console.log($scope.data);
+$scope.data.image == null? $scope.data.image= "../images/Cute_girl_bakery_logo_homemade_bakery_shop_hand_drawn_cartoon_art_illustration.jpg": null;
+
   // get by class tag
    let contentBody = document.querySelector(".content-product-body");
    let btnDown = document.querySelector(".content-product__down");
    let btnUp = document.querySelector(".content-product__up");
 // show hiden content  body Product
 $scope.showContent = function(){
-  contentBody.classList.remove('product-active');
+
 
   contentBody.classList.add("product-active");
 
@@ -184,7 +215,7 @@ magnifying_area.addEventListener("mousemove",function(event){
    clientX = clientX/mWidth*100;
    clinetY = clinetY/mWidth*100;
 
-magnifying_img.style.transform = 'translate(-'+  clientX+'%,-'+clinetY+'%) scale(2.5)';
+magnifying_img.style.transform = 'translate(-'+clientX+'%,-'+clinetY+'%) scale(2)';
 });
 magnifying_area.addEventListener("mouseleave",function(){
   magnifying_img.style.transform = 'translate(-50%,-50%) scale(1)';
