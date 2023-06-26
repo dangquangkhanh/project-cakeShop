@@ -97,39 +97,47 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
 
   // get data from filr json
   $http.get("./data/data.json").then(function (response) {
-    var filter = "";
-
+    var filter = false;
+ // funsction orderUserFill
+ 
     // varible nagination page
     ($scope.currentPage = 1), ($scope.numPerPage = 12), ($scope.maxSize = 5);
     var listItem = [];
-   
     listItem = response.data.details;
     console.log(listItem);
     // get type from myservice
-    var name = angular.element($(".product-item__type"));
-    name.on("click", function (event) {
-      console.log(event.target)
-      let orderFill = event.target.getAttribute("data-set");
-      orderFilter(orderFill);
-    
-    });
-
-    // funsction orderUserFill
+   
     function orderFilter(orderfil) {
-  console.log(orderfil)
-      $scope.listProduct = listItem.filter((item) =>
-        item.type.includes(orderfil)
-      );
-    }
-    orderFilter()
+      console.log(orderfil)
+        switch (orderfil) {
+          case "with":
+            
+            break;
+        
+          default:
+            break;
+        }
+          $scope.listProduct = listItem.filter((item) =>
+            item.type.includes(orderfil)
+           
+          );
+         
+        }
+        var name = angular.element($(".product-item__type"));
+        name.on("click", function (event) {
+          console.log(event.target)
+          let orderFill = event.target.getAttribute("data-set");
+          orderFilter(orderFill);
+        
+        });
+   
+
     //
-    filter = $scope.typeProduct;
+    filter = $scope.typeProduct == ""?false:$scope.typeProduct;
     console.log(filter);
     switch (filter) {
       case "gallsery":
-        $scope.listProduct = listItem.filter((item) =>
-          item.type.includes(filter)
-        );
+        orderFilter(filter);
         break;
       case "Anniversary":
         $scope.listProduct = listItem.filter((item) =>
@@ -146,39 +154,41 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
           item.type.includes(filter)
         );
         break;
-      case true:
-        break;
-
+        case false:
+          $scope.listProduct = listItem;
+          $scope.changePage = function (page) {
+            $scope.currentPage = page;
+          };
+          $scope.nextPage = function () {
+            if ($scope.currentPage >= 3) {
+              $scope.currentPage = 1;
+            } else {
+              $scope.currentPage++;
+            }
+          };
+          $scope.prewPage = function () {
+            console.log($scope.currentPage);
+            if ($scope.currentPage <= 1) {
+              $scope.currentPage = 3;
+            } else {
+              $scope.currentPage--;
+            }
+          };
+          $scope.numOfPages = function () {
+            return Math.ceil(itemsDetails.length / $scope.numPerPage);
+          };
+          $scope.$watch("currentPage + numPerPage", function () {
+            var begin = ($scope.currentPage - 1) * $scope.numPerPage,
+              end = begin + $scope.numPerPage;
+            $scope.listProduct = listItem.slice(begin, end);
+          });
+          break
+      
       default:
-        $scope.listProduct = listItem;
-        $scope.changePage = function (page) {
-          $scope.currentPage = page;
-        };
-        $scope.nextPage = function () {
-          if ($scope.currentPage >= 3) {
-            $scope.currentPage = 1;
-          } else {
-            $scope.currentPage++;
-          }
-        };
-        $scope.prewPage = function () {
-          console.log($scope.currentPage);
-          if ($scope.currentPage <= 1) {
-            $scope.currentPage = 3;
-          } else {
-            $scope.currentPage--;
-          }
-        };
-        $scope.numOfPages = function () {
-          return Math.ceil(itemsDetails.length / $scope.numPerPage);
-        };
-        $scope.$watch("currentPage + numPerPage", function () {
-          var begin = ($scope.currentPage - 1) * $scope.numPerPage,
-            end = begin + $scope.numPerPage;
-          $scope.listProduct = listItem.slice(begin, end);
-        });
+
+        
         break;
-    }
+      }
   });
 
   // save item data  myservice
