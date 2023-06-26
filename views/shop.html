@@ -22,18 +22,20 @@
                             </li>
                             <li class="item-search ">
                                 <span class="span-title">Type product</span>
+
                                 <ul class="product-list__type">
-                                    <li class="product-item__type"><a class="product-link__type" data-set="birthday"
-                                            ng-model="type" ng-click="orderFilter(birthday)">Birthday</a>
+                                    <li class="product-item__type">
+                                        <a class="product-link__type" data-set="birthday" ng-model="type"
+                                            ng-click="orderFilter(birthday)">Birthday</a>
                                     </li>
                                     <li class="product-item__type"><a class="product-link__type" data-set="Marriage"
-                                            ng-model="type">Marriagey</a>
+                                            ng-click="orderFilter(Marriage)" ng-model="type">Marriagey</a>
                                     </li>
                                     <li class="product-item__type"><a class="product-link__type" data-set="Anniversary"
-                                            ng-model="type">Anniversary</a>
+                                            ng-click="orderFilter(Anniversary)" ng-model="type">Anniversary</a>
                                     </li>
                                     <li class="product-item__type"><a class="product-link__type" data-set="gallsery"
-                                            ng-model="type">Gallsery</a>
+                                            ng-click="orderFilter(gallsery)" ng-model="type">Gallsery</a>
                                     </li>
 
                                 </ul>
@@ -120,12 +122,14 @@
         </div>
         <div class="numberbar">
 
-            <a class="btn" ng-click="prewPage()" id="prew-page"><i class="fa-solid fa-chevron-left"></i></a>
-            <a class="btn" ng-click="changePage(1)">1</a>
-            <a class="btn" ng-click="changePage(2)">2</a>
-            <a class="btn" ng-click="changePage(3)">3</a>
+            <a class="link-page btn" ng-model="linkPage" ng-click="prewPage()" id="prew-page"><i
+                    class="fa-solid fa-chevron-left"></i></a>
+            <a class="link-page btn" ng-model="linkPage" ng-click="changePage(1)">1</a>
+            <a class="link-page btn" ng-model="linkPage" ng-click="changePage(2)">2</a>
+            <a class="link-page btn" ng-model="linkPage" ng-click="changePage(3)">3</a>
 
-            <a class="btn" id="next-page" ng-click="nextPage()"><i class="fa-solid fa-chevron-right"></i> </a>
+            <a class="link-page btn" id="next-page" ng-model="linkPage" ng-click="nextPage()"><i
+                    class="fa-solid fa-chevron-right"></i> </a>
         </div>
     </div>
 
