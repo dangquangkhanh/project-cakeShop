@@ -106,16 +106,17 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
     listItem = response.data.details;
     console.log(listItem);
     // get type from myservice
-    // var name = angular.element($(".product-item__type"));
-    // name.on("click", function (event) {
-    //   console.log(event.target)
-    //   let orderFill = event.target.getAttribute("data-set");
-    //   orderFilter(orderFill);
-    // });
+    var name = angular.element($(".product-item__type"));
+    name.on("click", function (event) {
+      console.log(event.target)
+      let orderFill = event.target.getAttribute("data-set");
+      orderFilter(orderFill);
+    
+    });
 
     // funsction orderUserFill
     function orderFilter(orderfil) {
-  console.log()
+  console.log(orderfil)
       $scope.listProduct = listItem.filter((item) =>
         item.type.includes(orderfil)
       );
