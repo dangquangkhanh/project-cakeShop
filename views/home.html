@@ -100,7 +100,7 @@
         <div class="container-category">
             <div class="head">
                 <h1> Our <span class="span-text"> Category</span></h1>
-                <span class="view-all">View All >></span>
+                <a class="view-all" ng-click="saveType()">View All >></a>
             </div>
             <div class="category-content">
                 <div class="box-category wd-five">
@@ -132,10 +132,10 @@
         <div class="container-product">
             <div class="head">
                 <h1> Our<span class="span-text"> Products</span> </h1>
-                <span class="view-all">View All >></span>
+                <a class="view-all" href="#!shop">View All >></a>
             </div>
             <div class="product-content">
-                <div class=" box-product wd-for" ng-repeat=" item in data | filter:{'title':'Anniversary'} ">
+                <div class=" box-product wd-for" ng-repeat=" item in data | filter:{'type':'Anniversary'} ">
                     <div class=" product-icon">
                         <div class="box-icon">
                             <a href="" class="icon-link"> <i class="fa-solid fa-heart "></i></a>
@@ -200,10 +200,10 @@
         <div class="container-gallery">
             <div class="head">
                 <h1> Our <span class="span-text"> Gallsery</span> </h1>
-                <span class="view-all">View All >></span>
+                <a class="view-all" ng-click="saveType('gallsery')" href="#!shop">View All >></a>
             </div>
             <div class="gallsery-conten">
-                <div class=" wd-thir mg-t-b " ng-repeat="item in  data | filter :{'title':'gallsery'} ">
+                <div class=" wd-thir mg-t-b " ng-repeat="item in  data | filter :{'type':'gallsery'}">
                     <div class="gallsery-box">
                         <div class="gallsery-box__icon">
                             <a href="" class="box__icon-link"> <i class="fa-solid fa-heart "></i></a>
@@ -327,7 +327,7 @@
         <div class="container-blogs">
             <div class="head">
                 <h1> Our <span class="span-text"> Blogs</span></h1>
-                <span class="view-all">View All >></span>
+                <a class="view-all">View All >></a>
             </div>
             <div class="container-box-blogs">
                 <div class="wd-thir">
