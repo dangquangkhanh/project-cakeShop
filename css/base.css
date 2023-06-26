@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
-:root{
-    --brown:#833517;
+:root {
+    --brown: #833517;
 }
 
-body{
-    background:#B43F11;
+body {
+    background: #B43F11;
     width: 100%;
-  
+
 }
 
-*{
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -22,50 +22,56 @@ body{
     transition: .2s linear;
 }
 
-.btn{
+.btn {
     margin-top: 1rem;
     display: inline-block;
     padding: .8rem 3rem;
-    background:var(--brown);
-    color:#fff;
-    font-size:1.7rem;
+    background: var(--brown);
+    color: #fff;
+    font-size: 1.7rem;
     cursor: pointer;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
-    border:0.1rem solid rgba(0,0,0,0.7);
+    border: 0.1rem solid rgba(0, 0, 0, 0.7);
 }
-.btn:hover{
+
+.btn:hover {
     background: #222;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     color: #fff;
 }
 
-html{
+html {
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+
 /* input */
-input{
-    height: 3rem;
-    font-size: 1.4rem;
-   padding: 8px;
-   margin: 8px 0;
-}
-select{
+input {
     height: 4.9rem;
     font-size: 1.4rem;
-
-   margin: 8px 0; 
-   width: 100%;
+    padding: 8px;
+    margin: 8px 0;
 }
-textarea{
+
+select {
+    height: 4.9rem;
+    font-size: 1.4rem;
+    padding: 8px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+textarea {
     width: 100%;
     padding: 0 8px;
     font-size: 1.4rem;
     margin: 8px 0;
 }
+
 input[type="range"] {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
+    
     margin-right: 15px;
     width: 70%;
     height: 8px;
@@ -74,9 +80,9 @@ input[type="range"] {
     background-image: linear-gradient(#ff4500, #ff4500);
     background-size: 70% 100%;
     background-repeat: no-repeat;
-  }
-  
-  input[type="range"]::-webkit-slider-thumb {
+}
+
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 20px;
     width: 20px;
@@ -85,79 +91,140 @@ input[type="range"] {
     cursor: ew-resize;
     box-shadow: 0 0 2px 0 #555;
     transition: background .3s ease-in-out;
-  
-  }
-  
-  input[type=range]::-webkit-slider-runnable-track  {
+
+}
+
+input[type=range]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     box-shadow: none;
     border: none;
     background: transparent;
-  }
-  output{
+}
+
+output {
     color: #fff;
     padding: 4px;
     background-color: #833517;
     border-radius: 50%;
-  }
-/* margin */
-.mg-t12{
-  margin-top: -12px;
 }
-.mg-icon{
+
+/* margin */
+.mg-t12 {
+    margin-top: -12px;
+}
+
+.mg-icon {
     margin: 0 6px;
 }
-.mg-t-b{
+
+.mg-t-b {
     margin: 8px 0;
 }
+
 /* width colums*/
-.wd-full{
-width: 100%;
+.wd-full {
+    width: 100%;
 }
-.wd-haft{
+
+.wd-haft {
     width: 49%;
 }
-.wd-thir{
-width: 32.3333%;
+
+.wd-thir {
+    width: 32.3333%;
 }
-.wd-five{
+
+.wd-five {
     width: 19%;
 }
-.wd-for{
-    width: 24% ;
+
+.wd-for {
+    width: 24%;
 }
-.wd-76{
+
+.wd-76 {
     width: 76%;
 }
 
 /* box-shadow */
-.sadow{
+.sadow {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
 }
 
 /* padding */
-.pd-8{
+.pd-8 {
     padding: 8px 0;
 
 }
-.pd-16{
+
+.pd-16 {
     padding: 16px 0;
 }
-.bd-bottom{
+
+.bd-bottom {
     border-bottom: 1px solid #ccc;
 }
+
 /* head */
-.head h1{
+.head h1 {
     color: #fff;
     font-size: 3rem;
 }
-.span-text{
-    font-size: 3rem ;
+
+.span-text {
+    font-size: 3rem;
     color: #222;
 }
-.view-all{
+
+.view-all {
     font-size: 1.6rem;
 }
-.view-all:hover{
+
+.view-all:hover {
     color: #fff;
+}
+
+
+/* read more button */
+#check {
+    display: none;
+}
+
+.showtext {
+    display: none;
+}
+
+#check:checked~.showtext {
+    display: block;
+}
+
+#check:checked~label {
+    visibility: none;
+}
+
+/* read more button2 */
+#check1 {
+    display: none;
+}
+
+#check1:checked~.showtext {
+    display: block;
+}
+
+#check1:checked~label {
+    visibility: none;
+}
+
+/* read more button3 */
+#check2 {
+    display: none;
+}
+
+#check2:checked~.showtext {
+    display: block;
+}
+
+#check2:checked~label {
+    visibility: none;
+    color: #B43F11;
 }
