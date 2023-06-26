@@ -233,7 +233,7 @@
 }
 /* box product */
 .product-content {
-  padding: 32px 0;
+  padding-bottom: 32px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -661,6 +661,26 @@
 .span-title {
   font-size: 1.8rem;
 }
+/* shop page card fill detail */
+.fill-detail__list{
+list-style: none;
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding: 8px 16px;
+margin-left: 16px;
+box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+margin-top: 32px;
+
+}
+.fill-item{
+
+}
+.span-fill-item{
+  font-size: 1.6rem;
+  color: #ccc;
+  padding-top: 6px;
+}
 /* contact page*/
 .container-contact__content {
   display: flex;
@@ -840,6 +860,7 @@
   font-size: 3rem;
   padding: 0 8px;
 }
+
 
 /* footer */
 
