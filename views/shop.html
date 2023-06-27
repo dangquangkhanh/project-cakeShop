@@ -123,8 +123,8 @@
                     </div>
                 </from>
                 <div class="product-content">
-                    <div class=" box-product wd-thir"
-                        ng-repeat=" item in listProduct |filter:{'egg':selectEgg}|filter:{'type':selectProduct}|filter:{'price':selectPrice} ">
+                    <div class=" box-product wd-thir" ng-repeat=" item in listProduct 
+                    ">
                         <div class=" product-icon">
                             <div class="box-icon">
                                 <a href="" class="icon-link"> <i class="fa-solid fa-heart "></i></a>
@@ -159,17 +159,9 @@
                 </div>
             </div>
         </div>
-        <div class="numberbar">
+        <div id="pagebar" class="numberbar">
 
-            <a class="link-page btn" ng-model="linkPage" ng-click="prewPage()" id="prew-page"><i
-                    class="fa-solid fa-chevron-left"></i></a>
-            <a class="link-page btn" ng-model="linkPage" ng-click="changePage(1)">1</a>
-            <a class="link-page btn" ng-model="linkPage" ng-click="changePage(2)">2</a>
-            <a class="link-page btn" ng-model="linkPage" ng-click="changePage(3)">3</a>
 
-            <a class="link-page btn" id="next-page" ng-model="linkPage" ng-click="nextPage()"><i
-                    class="fa-solid fa-chevron-right"></i> </a>
         </div>
-    </div>
 
-</div>
+    </div>

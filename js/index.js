@@ -90,168 +90,123 @@ myApp.controller("homeCtrl", function ($scope, myService) {
 });
 // shop controller
 myApp.controller("shopCtrl", function ($scope, $http, myService) {
-  
-
   // get type from myservice
   $scope.typeProduct = myService.getTypeproduct();
 
   // get data from filr json
   $http.get("./data/data.json").then(async function (response) {
     var filter = false;
-   
- // funsction orderUserFill
- 
+
+    
+
     // varible nagination page
     ($scope.currentPage = 1), ($scope.numPerPage = 12), ($scope.maxSize = 5);
     var listItem = [];
     listItem = response.data.details;
-    console.log(listItem);
+ 
+    // hiden filter detail fromt product
+    $(".fill-detail__list").hide("");
     // get type from myservice
-     // hiden filter detail fromt product
-     $(".fill-detail__list").hide(); 
-    filter = $scope.typeProduct == ""?false:$scope.typeProduct;
-    function orderFilter(orderfil) {
 
-        switch (orderfil) {
-          case "with Egg":
-            var temp = []
-            temp = listItem.filter((item) =>
-            item.egg.includes(orderfil)          
-          );
-          $scope.changePage = function (page) {
-            $scope.currentPage = page;
-          };
-          $scope.nextPage = function () {
-            if ($scope.currentPage >= 3) {
-              $scope.currentPage = 1;
-            } else {
-              $scope.currentPage++;
-            }
-          };
-          $scope.prewPage = function () {
-            console.log($scope.currentPage);
-            if ($scope.currentPage <= 1) {
-              $scope.currentPage = 3;
-            } else {
-              $scope.currentPage--;
-            }
-          };
-          $scope.numOfPages = function () {
-            return Math.ceil(itemsDetails.length / $scope.numPerPage);
-          };
-          $scope.$watch("currentPage + numPerPage", function () {
-            var begin = ($scope.currentPage - 1) * $scope.numPerPage,
-              end = begin + $scope.numPerPage;
-            $scope.listProduct = temp.slice(begin, end);
-          }); 
+    filter = $scope.typeProduct == "" ? false : $scope.typeProduct;
+
+    //nagination
+
+    // load product
+    function loadProduct(list) {
+      console.log(list)
+      let temp = []
+      let beginGet = $scope.numPerPage * ($scope.currentPage - 1);
+      let endGet = $scope.numPerPage * $scope.currentPage - 1;
+      list != ""
+        ? list.forEach((item, index) => {
+          if (index >= beginGet && index <= endGet) {
+
+            $scope.listProduct = list
+
+          } else {
+
+          }
+        })
+        : 0;
+      $scope.listProduct = temp;
+   
+      listPage();
+    }
+    function listPage() {
+      let count = Math.ceil(listItem.length / $scope.numPerPage)
+      $("#pagebar").text("");
+      console.log(count)
+      for (let index = 0; index < count.length; index++) {
+        let newPage = document.createElement("button");
+        $("#pagebar").text(index);
+        newPage.classList.add("btn");
+
+        changePage(index)
+        $("#pagebar").append(newPage);
+      }
+    }
+
+    function changePage(index) {
+      $scope.currentPage = index;
+      loadProduct();
+    }
+    //
+    loadProduct(listItem);
+    function orderFilter(orderfil) {
+      var temp = [];
+      switch (orderfil) {
+
+        case "with Egg":
+
+          temp = listItem.filter((item) => item.egg.includes(orderfil));
+
+          loadProduct(temp);
+
           // show hide tag
           $(".fill-item__egg").hide();
           $(".fill-item__product").show();
           $(".fill-detail__list").show();
-       
-            break;
-            case "no":
-              $scope.listProduct = listItem.filter((item) =>
-              item.egg.includes(orderfil)          
-            );
-            $(".fill-item__egg").hide();
-            $(".fill-item__product").show();
-              $(".fill-detail__list").show();
-           
-         
-            break;
-            case "all": 
-                       
-            $scope.changePage = function (page) {
-              $scope.currentPage = page;
-            };
-            $scope.nextPage = function () {
-              if ($scope.currentPage >= 3) {
-                $scope.currentPage = 1;
-              } else {
-                $scope.currentPage++;
-              }
-            };
-            $scope.prewPage = function () {
-              console.log($scope.currentPage);
-              if ($scope.currentPage <= 1) {
-                $scope.currentPage = 3;
-              } else {
-                $scope.currentPage--;
-              }
-            };
-            $scope.numOfPages = function () {
-              return Math.ceil(itemsDetails.length / $scope.numPerPage);
-            };
-            $scope.$watch("currentPage + numPerPage", function () {
-              var begin = ($scope.currentPage - 1) * $scope.numPerPage,
-                end = begin + $scope.numPerPage;
-              $scope.listProduct = listItem.slice(begin, end);
-            }); 
-            break;           
-          default:
-            $scope.listProduct = listItem.filter((item) =>
-            item.type.includes(orderfil)
-          
+
+          break;
+        case "no":
+          temp = listItem.filter((item) =>
+            item.egg.includes(orderfil)
           );
-           // show hide tag
-          $(".fill-item__product").hide()
+
+          loadProduct(temp);
+         // show hide tag
+          $(".fill-item__egg").hide();
+          $(".fill-item__product").show();
+          $(".fill-detail__list").show();
+
+          break;
+        case "all":
+          temp = listItem;
+          loadProduct(temp);
+          $(".fill-detail__list").hide();
+
+          break;
+        default:
+          temp = listItem.filter((item) => item.type.includes(orderfil));
+          loadProduct(temp)
+          // show hide tag
+          $(".fill-item__product").hide();
           $(".fill-item__egg").show();
           $(".fill-detail__list").show();
-         
-            break;
-        }         
-        }
-      
-         $(".product-item__type").click( async function (e) { 
-          let orderFill = e.target.getAttribute("data-set");
-          orderFilter(orderFill)
-        })
-   
-      
-    //
-   
-    console.log(filter);
-    switch (filter) {
-      case "gallsery":
-        orderFilter(filter);
-        break;
-     
-        case false:
-          $scope.listProduct = listItem;
-          $scope.changePage = function (page) {
-            $scope.currentPage = page;
-          };
-          $scope.nextPage = function () {
-            if ($scope.currentPage >= 3) {
-              $scope.currentPage = 1;
-            } else {
-              $scope.currentPage++;
-            }
-          };
-          $scope.prewPage = function () {
-            console.log($scope.currentPage);
-            if ($scope.currentPage <= 1) {
-              $scope.currentPage = 3;
-            } else {
-              $scope.currentPage--;
-            }
-          };
-          $scope.numOfPages = function () {
-            return Math.ceil(itemsDetails.length / $scope.numPerPage);
-          };
-          $scope.$watch("currentPage + numPerPage", function () {
-            var begin = ($scope.currentPage - 1) * $scope.numPerPage,
-              end = begin + $scope.numPerPage;
-            $scope.listProduct = listItem.slice(begin, end);
-          });
-          break
-      
-      default:
 
-        
-        break;
+          break;
       }
+    }
+
+    $(".product-item__type").click(async function (e) {
+      let orderFill = e.target.getAttribute("data-set");
+      orderFilter(orderFill);
+    });
+
+    //
+
+
   });
 
   // save item data  myservice
@@ -281,7 +236,7 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
 });
 
 // contact controller
-myApp.controller("contactCtrl", function ($scope) {});
+myApp.controller("contactCtrl", function ($scope) { });
 // detail controller
 myApp.controller("detailCtrl", function ($scope, myService) {
   // get  data from myservice
@@ -289,7 +244,7 @@ myApp.controller("detailCtrl", function ($scope, myService) {
 
   $scope.data.image == null
     ? ($scope.data.image =
-        "../images/Cute_girl_bakery_logo_homemade_bakery_shop_hand_drawn_cartoon_art_illustration.jpg")
+      "../images/Cute_girl_bakery_logo_homemade_bakery_shop_hand_drawn_cartoon_art_illustration.jpg")
     : null;
 
   // get by class tag
@@ -315,7 +270,6 @@ myApp.controller("detailCtrl", function ($scope, myService) {
     btnUp.classList.remove("show-btn");
   };
   // zoom img product
-  
 
   let magnifying_area = document.getElementById("magnifying_area");
   let magnifying_img = document.getElementById("magnifying_img");
