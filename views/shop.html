@@ -28,16 +28,16 @@
                                 <ul class="product-list__type">
                                     <li class="product-item__type">
                                         <a class="product-link__type" data-set="birthday" ng-model="type"
-                                            ng-click="orderfil()">Birthday</a>
+                                            ng-click="getType('birthday')" value="birthday">Birthday</a>
                                     </li>
                                     <li class="product-item__type"><a class="product-link__type" data-set="Marriage"
-                                            ng-click="orderfil()" ng-model="type">Marriagey</a>
+                                            ng-click="getType('Marriage')" ng-model="type">Marriagey</a>
                                     </li>
                                     <li class="product-item__type"><a class="product-link__type" data-set="Anniversary"
-                                            ng-click="orderfil()" ng-model="type">Anniversary</a>
+                                            ng-click="getType('Anniversary')" ng-model="type">Anniversary</a>
                                     </li>
                                     <li class="product-item__type"><a class="product-link__type" data-set="gallsery"
-                                            ng-click="orderfil()" ng-model="type">Gallsery</a>
+                                            ng-click="getType('gallsery')" ng-model="type">Gallsery</a>
                                     </li>
 
                                 </ul>
@@ -123,8 +123,8 @@
                     </div>
                 </from>
                 <div class="product-content">
-                    <div class=" box-product wd-thir" ng-repeat=" item in listProduct 
-                    ">
+                    <div class=" box-product wd-thir" ng-repeat=" item in listProduct | 
+               filter:{'type':type} |  limitTo : pageSize">
                         <div class=" product-icon">
                             <div class="box-icon">
                                 <a href="" class="icon-link"> <i class="fa-solid fa-heart "></i></a>

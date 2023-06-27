@@ -100,9 +100,11 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
     
 
     // varible nagination page
-    ($scope.currentPage = 1), ($scope.numPerPage = 12), ($scope.maxSize = 5);
-    var listItem = [];
-    listItem = response.data.details;
+    ( $scope.listProduct = []);
+    ($scope.currentPage = 1),
+     ($scope.pageSize = 12)
+
+    $scope.listProduct = response.data.details;
  
     // hiden filter detail fromt product
     $(".fill-detail__list").hide("");
@@ -110,99 +112,10 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
 
     filter = $scope.typeProduct == "" ? false : $scope.typeProduct;
 
-    //nagination
-
-    // load product
-    function loadProduct(list) {
-      console.log(list)
-      let temp = []
-      let beginGet = $scope.numPerPage * ($scope.currentPage - 1);
-      let endGet = $scope.numPerPage * $scope.currentPage - 1;
-      list != ""
-        ? list.forEach((item, index) => {
-          if (index >= beginGet && index <= endGet) {
-
-            $scope.listProduct = list
-
-          } else {
-
-          }
-        })
-        : 0;
-      $scope.listProduct = temp;
-   
-      listPage();
-    }
-    function listPage() {
-      let count = Math.ceil(listItem.length / $scope.numPerPage)
-      $("#pagebar").text("");
-      console.log(count)
-      for (let index = 0; index < count.length; index++) {
-        let newPage = document.createElement("button");
-        $("#pagebar").text(index);
-        newPage.classList.add("btn");
-
-        changePage(index)
-        $("#pagebar").append(newPage);
-      }
-    }
-
-    function changePage(index) {
-      $scope.currentPage = index;
-      loadProduct();
-    }
-    //
-    loadProduct(listItem);
-    function orderFilter(orderfil) {
-      var temp = [];
-      switch (orderfil) {
-
-        case "with Egg":
-
-          temp = listItem.filter((item) => item.egg.includes(orderfil));
-
-          loadProduct(temp);
-
-          // show hide tag
-          $(".fill-item__egg").hide();
-          $(".fill-item__product").show();
-          $(".fill-detail__list").show();
-
-          break;
-        case "no":
-          temp = listItem.filter((item) =>
-            item.egg.includes(orderfil)
-          );
-
-          loadProduct(temp);
-         // show hide tag
-          $(".fill-item__egg").hide();
-          $(".fill-item__product").show();
-          $(".fill-detail__list").show();
-
-          break;
-        case "all":
-          temp = listItem;
-          loadProduct(temp);
-          $(".fill-detail__list").hide();
-
-          break;
-        default:
-          temp = listItem.filter((item) => item.type.includes(orderfil));
-          loadProduct(temp)
-          // show hide tag
-          $(".fill-item__product").hide();
-          $(".fill-item__egg").show();
-          $(".fill-detail__list").show();
-
-          break;
-      }
-    }
-
-    $(".product-item__type").click(async function (e) {
-      let orderFill = e.target.getAttribute("data-set");
-      orderFilter(orderFill);
-    });
+    $scope.getType = function(typeProduct){
+    console.log(typeProduct);
+      $scope.type = typeProduct
+   }
 
     //
 
