@@ -31,10 +31,20 @@ myApp.config(function ($routeProvider) {
     });
 });
 myApp.run(function ($rootScope, $http) {
-  $http.get("./data/data.json").then(function (response) {
+  var vm = this;
+
+  $http({
+    method: 'GET',
+    url: '/api/data'
+  }).then(function successCallback(response) {
+    // Xử lý phản hồi thành công từ server
     $rootScope.data = response.data.details;
     console.log($rootScope.data);
+  }, function errorCallback(response) {
+    // Xử lý phản hồi thất bại từ server
+    console.log('Lỗi khi lấy dữ liệu:');
   });
+  
 });
 // factory
 myApp.factory("myService", function () {
@@ -95,7 +105,7 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
 
   // get data from filr json
   $http.get("./data/data.json").then(async function (response) {
-    var filter = false;
+  $scope.filter = "";
 
     
 
@@ -110,11 +120,14 @@ myApp.controller("shopCtrl", function ($scope, $http, myService) {
     $(".fill-detail__list").hide("");
     // get type from myservice
 
-    filter = $scope.typeProduct == "" ? false : $scope.typeProduct;
-
+    $scope.filter = $scope.typeProduct;
+console.log( $scope.filter)
     $scope.getType = function(typeProduct){
     console.log(typeProduct);
       $scope.type = typeProduct
+   }
+   $scope.orderfilEgg = function(egg){
+    $scope.egg = egg
    }
 
     //
@@ -203,3 +216,6 @@ myApp.controller("detailCtrl", function ($scope, myService) {
     magnifying_img.style.transform = "translate(-50%,-50%) scale(1)";
   });
 });
+myApp.controller("aboutCtrl",function($scope){
+
+})

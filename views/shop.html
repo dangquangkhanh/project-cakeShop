@@ -1,6 +1,6 @@
 <div class="container-shop" ng-controller="shopCtrl">
     <div class="bg-shop"></div>
-    <div class="container">
+    <div class="container max-width ">
         <div class="container-shop__conten">
 
             <div class="wd-for">
@@ -12,7 +12,6 @@
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.277428229037!2d106.64782024265908!3d10.786834253624187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1sen!2sin!4v1687748371132!5m2!1sen!2sin"
                                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
                         <ul class="list-search">
                             <li class="product-item__type item-search"><span class="span-title"> Product</span>
                                 <a class="product-link__type" data-set="all" ng-model="type" ng-click="orderfil()">All
@@ -24,7 +23,6 @@
                             </li>
                             <li class="item-search ">
                                 <span class="span-title">Type product</span>
-
                                 <ul class="product-list__type">
                                     <li class="product-item__type">
                                         <a class="product-link__type" data-set="birthday" ng-model="type"
@@ -44,16 +42,17 @@
                             </li>
                             <li class="item-search">
                                 <span class="span-title">Name product</span>
-                                <input type="text" placeholder="search name product" class="search-name">
+                                <input type="text" placeholder="search name product" ng-model="name"
+                                    class="search-name">
                             </li>
                             <li class=" item-search">
                                 <span class="span-title">Egg</span>
                                 <ul class="product-list__type">
-                                    <li class="product-item__type"><a href="" class="product-link__type" ng-model="type"
-                                            ng-click="orderfil()" data-set="with Egg">With Egg</a>
+                                    <li class="product-item__type"><a href="" class="product-link__type" ng-model="egg"
+                                            ng-click="orderfilEgg('with Egg')" data-set="with Egg">With Egg</a>
                                     </li>
-                                    <li class="product-item__type"><a href="" class="product-link__type" ng-model="type"
-                                            ng-click="orderfil()" data-set="no">Have Egg </a>
+                                    <li class="product-item__type"><a href="" class="product-link__type" ng-model="egg"
+                                            ng-click="orderfilEgg('no')" data-set="no">Have Egg </a>
                                     </li>
                                 </ul>
                             </li>
@@ -83,49 +82,13 @@
                         </div>
                     </div>
 
-
-
                 </div>
             </div>
-            <div class="shop-card wd-76">
-                <from id="filter-detail__from">
-
-                    <div class="fill-detail">
-                        <ul class="fill-detail__list wd-76">
-                            <li class="fill-item__price wd-thir">
-                                <span class="span-fill-item">Price</span><select name="" ng-model="selectPrice"
-                                    class="fill-item__select">
-                                    <option value="19" class="fill-item__op">Min</option>
-                                    <option value="100" class="fill-item__op">Max</option>
-
-                                </select>
-                            </li>
-                            <li class="fill-item__product wd-thir">
-                                <span class="span-fill-item">Product</span>
-                                <select name="" ng-model="selectProduct" class="fill-item__select"
-                                    ng-selected="selectedProduct">
-                                    <option value="birthday" class="fill-item__op">Birthday</option>
-                                    <option value="Marriage" class="fill-item__op">Marriagey</option>
-                                    <option value="Anniversary" class="fill-item__op">Anniversary</option>
-                                    <option value="gallsery" class="fill-item__op">Gallsery</option>
-                                </select>
-                            </li>
-                            <li class="fill-item__egg wd-thir">
-                                <span class="span-fill-item">Egg</span><select ng-model="selectEgg" name="" id=""
-                                    class="fill-item__select">
-
-                                    <option value="with Egg" class="fill-item__op">With Egg</option>
-                                    <option value="no" class="fill-item__op">Have Egg</option>
-                                </select>
-                            </li>
-
-                        </ul>
-                    </div>
-                </from>
-                <div class="product-content">
+            <div class="shop-card wd-76 s-full-width">
+                <div class="product-content ">
                     <div class=" box-product wd-thir" ng-repeat=" item in listProduct | 
-               filter:{'type':type} |  limitTo : pageSize">
-                        <div class=" product-icon">
+               filter:{'type':type||filter}| filter:{'egg':egg} |filter:{'name':name}|  limitTo : pageSize">
+                        <div class=" product-icon ">
                             <div class="box-icon">
                                 <a href="" class="icon-link"> <i class="fa-solid fa-heart "></i></a>
                                 <a href="" class="icon-link"> <i class="fa-solid fa-cart-shopping "></i></a>
@@ -160,7 +123,6 @@
             </div>
         </div>
         <div id="pagebar" class="numberbar">
-
 
         </div>
 
